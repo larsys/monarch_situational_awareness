@@ -1,0 +1,42 @@
+<launch>
+    <arg name="repo" default="$(find monarch_situational_awareness)/config/slot_config.yaml"/>
+    <arg name="multimaster" default="0"/>
+    <arg name="static_hosts" default="0"/>
+    <arg name="load_topics" default="0"/>
+    <arg name="run_webserver" default="1"/>
+
+    <group if="$(arg load_topics)">
+        <node name="sam_topic_loader" type="sam_topic_loader" pkg="monarch_situational_awareness"
+         args="$(find monarch_situational_awareness)/config/topics_to_load.yaml" output="screen"/>
+    </group>
+
+    <group if="$(arg run_webserver)">
+        <node name="sam_webserver" type="sam_webserver" pkg="monarch_situational_awareness"/>
+    </group>    
+        
+    <group if="$(arg multimaster)">
+        <include file="$(find monarch_situational_awareness)/launch/multimaster.launch"/>
+        <group if="$(arg static_hosts)">
+            <node name="sam_node" type="sam_node" pkg="monarch_situational_awareness"
+                  args="$(arg repo)" output="screen" respawn="true">
+                <rosparam command="load" file="$(find monarch_situational_awareness)/config/agent_names.yaml"/>
+                <rosparam command="load" file="$(find monarch_situational_awareness)/config/default_group_hosts.yaml"/>
+                <param name="allow_asynch_comms" value="1"/>
+                <param name="connect_to_multimaster_bridge" value="1"/>
+            </node>
+        </group>
+        <group unless="$(arg static_hosts)">
+            <node name="sam_node" type="sam_node" pkg="monarch_situational_awareness"
+                  args="$(arg repo)" output="screen" respawn="true">
+                <param name="allow_asynch_comms" value="1"/>
+                <param name="connect_to_multimaster_bridge" value="1"/>
+            </node>
+        </group>
+    </group>
+    <group unless="$(arg multimaster)">
+        <node name="sam_node" type="sam_node" pkg="monarch_situational_awareness"
+              args="$(arg repo)" output="screen" respawn="true">
+            <rosparam command="load" file="$(find monarch_situational_awareness)/config/default_group_hosts.yaml"/>
+	</node>
+    </group>    
+</launch>

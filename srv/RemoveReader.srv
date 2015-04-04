@@ -1,0 +1,14 @@
+#file: RemoveReader.srv
+#author: Joao Messias (jmessias@isr.ist.utl.pt)
+#
+#This is the description file for the service
+#of removing (unregistering) a SAM Reader.
+#
+#The request consists of the name of the target slot,
+#and the name of the Reader to remove (this can be called by someone
+#else other than the Reader itself).
+string slot_name
+string reader_name
+---
+#The reply contains a status flag (success / failure).
+bool success

@@ -1,0 +1,14 @@
+#file: CreateWriter.srv
+#author: Joao Messias (jmessias@isr.ist.utl.pt)
+#
+#This is the description file for the service
+#of creating a SAM Writer.
+#
+#The request consists of the name of the target slot
+WriterProperties properties
+---
+#The reply contains a status flag (success / failure)
+#and the name of the topic that the caller should
+#start publishing to.
+bool success
+string topic_name

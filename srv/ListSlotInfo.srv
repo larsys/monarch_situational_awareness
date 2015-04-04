@@ -1,0 +1,10 @@
+#file: ListSlotInfo.srv
+#author: Joao Messias (jmessias@isr.ist.utl.pt)
+#
+#This service can be used to list all of the 
+#slots that are present in the local SAR.
+#The request type is std_srvs/Empty
+---
+#The reply type (a list of SlotProperties)
+SlotProperties[] singles
+GroupProperties[] groups

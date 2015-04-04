@@ -1,0 +1,2 @@
+string[] hosts
+SlotProperties representative

@@ -1,0 +1,140 @@
+singles:
+  - 
+    name: Fake_People_Localization_Tracker
+    description: 'Location of the People in the setup'
+    type_str: monarch_msgs/PersonLocalizationTrackingDataArray
+    is_shared: True
+    is_latched: True
+  - 
+    name: People_Localization_Tracker  
+    description: 'Location of the People in the setup'
+    type_str: monarch_msgs/PersonLocalizationTrackingDataArray
+    is_shared: True
+    is_latched: False
+  - 
+    name: Robot_Localization_Tracker
+    description: 'Location of the Robot in the setup'
+    type_str: monarch_msgs/PersonLocalizationTrackingDataArray
+    is_shared: False
+    is_latched: False
+  - 
+    name: Leader_Assist
+    description: 'Formation leader informing about constrained space'
+    type_str: std_msgs/UInt32
+    is_shared: True
+    is_latched: True
+  - 
+    name: Follower1_handshake
+    description: 'Follower1 ready'
+    type_str: std_msgs/UInt32
+    is_shared: True
+    is_latched: True
+  - 
+    name: Follower2_handshake
+    description: 'Follower2 ready'
+    type_str: std_msgs/UInt32
+    is_shared: True
+    is_latched: True
+  - 
+    name: Follower3_handshake
+    description: 'Follower3 ready'
+    type_str: std_msgs/UInt32
+    is_shared: True
+    is_latched: True
+  - 
+    name: Follower_1_Ready
+    description: 'Follower1 ready'
+    type_str: std_msgs/Bool
+    is_shared: True
+    is_latched: False
+  - 
+    name: Follower_2_Ready
+    description: 'Follower2 ready'
+    type_str: std_msgs/Bool
+    is_shared: True
+    is_latched: False
+  - 
+    name: Follower_3_Ready
+    description: 'Follower3 ready'
+    type_str: std_msgs/Bool
+    is_shared: True
+    is_latched: False
+groups:
+  - 
+    representative:
+        name: RobotPose
+        description: 'The pose of the robot as reported by its self-localization'
+        type_str: geometry_msgs/PoseWithCovarianceStamped
+        is_shared: True
+        is_latched: True
+  - 
+    representative:
+        name: BatteriesVoltage
+        description: 'The voltage of the batteries of this robot, to be read by
+                    the planner'
+        type_str: monarch_msgs/BatteriesVoltage
+        is_shared: True
+        is_latched: True
+  - 
+    representative:
+        name: ExecuteBehavior
+        description: 'Used by GBM to send behavior execution command to MBots'
+        type_str: monarch_msgs/BehaviorSelection
+        is_shared: True
+        is_latched: True
+  -
+    representative:
+        name: CurrentExecutingBehaviors
+        description: 'Used by LBM to let SAP and GBM what behavior an MBot is executing'
+        type_str: monarch_msgs/BehaviorSelectionArray
+        is_shared: True
+        is_latched: True
+  -
+    representative:
+        name: CurrentBehaviorFeedback
+        description: 'Used by LBM to let SAP and GBM the feedback from the behavior this MBot is executing'
+        type_str: monarch_msgs/KeyValuePairArray
+        is_shared: True
+        is_latched: True
+  -
+    representative:
+        name: CurrentBehaviorResult
+        description: 'Used by LBM to let SAP and GBM the result from the behavior this MBot is executing'
+        type_str: monarch_msgs/KeyValuePairArray
+        is_shared: True
+        is_latched: True
+  -
+    representative:
+        name: IsPersonClose
+        description: 'A Predicate that represents wether or not a person is close to this robot'
+        type_str: monarch_msgs/KeyValuePair
+        is_shared: True
+        is_latched: True
+  - 
+    representative:
+        name: RFIDReading
+        description: 'The raw data read by the RFID sensor'
+        type_str: monarch_msgs/RfidReading
+        is_shared: True
+        is_latched: False
+  -
+     representative: 
+       name: tfPose
+       description: 'Pose obtained from map->base link tf'
+       type_str: geometry_msgs/Pose
+       is_shared: True
+       is_latched: True
+  -
+     representative: 
+       name: flowfreeGoal
+       description: 'Next goal for the robot in the game'
+       type_str: move_base_msgs/MoveBaseGoal
+       is_shared: True
+       is_latched: True
+  -
+     representative: 
+       name: flowfreeGoalFeedback
+       description: 'Status of current goal'
+       type_str: std_msgs/String
+       is_shared: True
+       is_latched: True

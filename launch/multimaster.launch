@@ -1,0 +1,12 @@
+<launch>
+    <node name="master_discovery" pkg="master_discovery_fkie" type="master_discovery" output="screen"/>
+    <node name="master_sync" pkg="master_sync_fkie" type="master_sync" output="screen">
+        <rosparam param="ignore_nodes">[]</rosparam>
+        <rosparam param="sync_nodes">
+            ["/*sam_multimaster*"]
+        </rosparam>
+	<rosparam param="ignore_topics">["/*/*_output","/*/*_input","/*manager_states_in","/*manager_states_out"]</rosparam>
+        <rosparam param="sync_topics">["/*multimaster_bridge*"]</rosparam>
+    </node>
+    <node name="$(anon sam_multimaster)" pkg="monarch_situational_awareness" type="sam_multimaster" output="screen"/>
+</launch>

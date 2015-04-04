@@ -1,0 +1,12 @@
+#file: CreateSlot.srv
+#author: Joao Messias (jmessias@isr.ist.utl.pt)
+#
+#This is the description file for the service
+#of creating a SAM Slot.
+#
+#The request consists of a "SlotProperties" message
+#(see the corresponding message definition for details)
+SlotProperties properties
+---
+#The reply contains a status flag (success / failure).
+bool success

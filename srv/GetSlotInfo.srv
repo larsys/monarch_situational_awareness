@@ -1,0 +1,12 @@
+#file: ListSlotInfo.srv
+#author: Joao Messias (jmessias@isr.ist.utl.pt)
+#
+#This service can be used to get information
+#regarding one specific slot that is present in 
+#the local SAR.
+#The request type (slot name) and agent name
+string slot_name
+string agent_name
+---
+#The reply type (SlotProperties)
+SlotProperties properties

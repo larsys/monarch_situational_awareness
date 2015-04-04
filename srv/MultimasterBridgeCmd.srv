@@ -1,0 +1,5 @@
+string target_topic
+string type_str
+string key
+---
+bool success

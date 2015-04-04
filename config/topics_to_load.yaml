@@ -1,0 +1,7 @@
+#Here, we can list all of the topics running on a single robot that we want to load directly into SAM
+singles:
+groups:
+    RobotPose: amcl_pose
+    BatteriesVoltage: batteries_voltage
+    RFIDReading: rfid_tag
+
