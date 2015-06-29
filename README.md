@@ -6,3 +6,5 @@ of managing the communication in a networked robot system, and to act as an inte
 from the various project partners, supporting their deployment, and allowing system-wide communication properties to be 
 ensured and visualized in real-time.
 
+Check the Wiki of this repository for technical details of how to deploy / use SAM. 
+
